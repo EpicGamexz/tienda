@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  database: tienda
+  pool: 5
+  username: ethan
+  password: desmadre09,
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  database: tienda_test
+  pool: 5
+  username: ethan
+  password: desmadre09,
+  timeout: 5000
