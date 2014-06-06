@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605220583) do
+ActiveRecord::Schema.define(version: 20140606230309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -246,6 +246,7 @@ ActiveRecord::Schema.define(version: 20140605220583) do
 
   add_index "spree_orders", ["completed_at"], name: "index_spree_orders_on_completed_at", using: :btree
   add_index "spree_orders", ["number"], name: "index_spree_orders_on_number", using: :btree
+  add_index "spree_orders", ["user_id", "created_by_id"], name: "index_spree_orders_on_user_id_and_created_by_id", using: :btree
   add_index "spree_orders", ["user_id"], name: "index_spree_orders_on_user_id", using: :btree
 
   create_table "spree_orders_promotions", id: false, force: true do |t|
@@ -532,6 +533,21 @@ ActiveRecord::Schema.define(version: 20140605220583) do
 
   add_index "spree_shipping_rates", ["shipment_id", "shipping_method_id"], name: "spree_shipping_rates_join_index", unique: true, using: :btree
 
+  create_table "spree_slides", force: true do |t|
+    t.string   "name"
+    t.text     "body"
+    t.string   "link_url"
+    t.boolean  "published"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position",           default: 0, null: false
+    t.integer  "product_id"
+  end
+
   create_table "spree_state_changes", force: true do |t|
     t.string   "name"
     t.string   "previous_state"
@@ -699,13 +715,14 @@ ActiveRecord::Schema.define(version: 20140605220583) do
     t.string   "authentication_token"
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.datetime "remember_created_at"
     t.datetime "reset_password_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "spree_api_key",          limit: 48
+    t.datetime "remember_created_at"
   end
 
+  add_index "spree_users", ["email"], name: "email_idx_unique", unique: true, using: :btree
   add_index "spree_users", ["spree_api_key"], name: "index_spree_users_on_spree_api_key", using: :btree
 
   create_table "spree_variants", force: true do |t|
