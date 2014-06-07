@@ -48,3 +48,5 @@ gem 'spree', github: 'spree/spree', branch: '2-2-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-2-stable'
 
 gem 'spree_fancy', :github => 'spree/spree_fancy', branch: '2-2-stable'
+
+gem "spree_product_zoom", :git => "git://github.com/spree/spree_product_zoom.git", branch: '2-2-stable'
