@@ -44,9 +44,9 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'spree', github: 'spree/spree', branch: '2-2-stable'
-
+#devise
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-2-stable'
-
+#theme
 gem 'spree_fancy', :github => 'spree/spree_fancy', branch: '2-2-stable'
-
+#zoom
 gem "spree_product_zoom", :git => "git://github.com/spree/spree_product_zoom.git", branch: '2-2-stable'
