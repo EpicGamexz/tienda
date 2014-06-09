@@ -51,3 +51,6 @@ gem 'spree_fancy', :github => 'spree/spree_fancy', branch: '2-2-stable'
 #zoom
 gem "spree_product_zoom", :git => "git://github.com/spree/spree_product_zoom.git", branch: '2-2-stable'
 
+#heroku
+gem 'rails_12factor'
+
